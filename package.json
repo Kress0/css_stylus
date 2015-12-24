@@ -1,5 +1,5 @@
 {
-  "name": "CSS stylus",
+  "name": "css_stylus",
   "version": "1.0.0",
   "description": "A set of utilities using stylus for cross-browser support.",
   "scripts": {
