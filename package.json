@@ -1,0 +1,15 @@
+{
+  "name": "rework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "stylus css_stylus/style.styl css_stylus/style_ie.styl -w -c -o css/"
+  },
+  "author": "a.ivaschenko",
+  "license": "MIT",
+  "devDependencies": {
+    "stylus": "^0.53.0"
+  }
+}
