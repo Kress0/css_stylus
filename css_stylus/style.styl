@@ -2,11 +2,13 @@ ie ?= false
 
 @import 'utils.styl'
 
-body
-    margin 0
+html
+    height 100%
     
-    if ie
-        zoom 1
-        
+body
+    min-height 100%
+    margin 0
+    position relative
+    
 div
-    width auto
+    display inline-block

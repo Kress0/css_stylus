@@ -2,3 +2,10 @@ box-shadow()
     -webkit-box-shadow arguments
     -moz-box-shadow arguments
     box-shadow arguments
+    
+display()
+    if ie and arguments == inline-block
+        display inline
+        zoom 1
+    else
+        display arguments
