@@ -2,12 +2,18 @@
   "name": "css_stylus",
   "version": "1.0.0",
   "description": "A set of utilities using stylus for cross-browser support.",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kress0/css_stylus.git"
+  },
   "scripts": {
     "compile": "stylus css_stylus/style.styl css_stylus/style_ie.styl -w -c -o css/"
   },
-  "author": "a.ivaschenko",
+  "author": "a.ivaschenko || Tony Northson @ arctic.legion@gmail.com",
   "license": "MIT",
   "devDependencies": {
+    "normalize-styl": "^3.0.3",
     "stylus": "^0.53.0"
   }
 }
