@@ -1,7 +1,14 @@
-box-shadow()
-    -webkit-box-shadow arguments
-    -moz-box-shadow arguments
-    box-shadow arguments
+
+//____________________
+// Utilities
+    
+clearfix()
+    &:before,
+    &:after
+        content ' '
+        display table
+    &:after
+        clear both
     
 display()
     if ie and arguments == inline-block
@@ -9,3 +16,55 @@ display()
         zoom 1
     else
         display arguments
+        
+reset_focus()
+    &::-moz-focus-inner
+        border 0 // mozilla
+        
+    &:focus
+        outline none
+        
+//____________________
+// Vendor prefixes
+
+add-prefixes(vendors, _arguments)
+    property = current-property[0];
+    
+    for prefix in vendors
+        -{prefix}-{property} _arguments
+    {property} _arguments
+        
+border-radius()
+    vendors = webkit moz
+    add-prefixes(vendors, arguments)
+        
+box-shadow()
+    vendors = webkit moz
+    add-prefixes(vendors, arguments)
+    
+transform()
+    vendors = webkit moz ms o
+    add-prefixes(vendors, arguments)
+
+transition()
+    vendors = webkit moz o
+    add-prefixes(vendors, arguments)
+        
+user-select()
+    vendors = webkit moz ms
+    add-prefixes(vendors, arguments)
+        
+//____________________
+// Vendor prefixes disabling for IE
+        
+if ie
+    border-radius()
+        z if 0
+    box-shadow()
+        z if 0
+    transform()
+        z if 0
+    transition()
+        z if 0
+    user-select()
+        z if 0
