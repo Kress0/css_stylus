@@ -13,7 +13,6 @@
   "author": "a.ivaschenko || Tony Northson @ arctic.legion@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "normalize-styl": "^3.0.3",
     "stylus": "^0.53.0"
   }
 }
