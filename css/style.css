@@ -1,1 +1,25 @@
-html{height:100%}body{min-height:100%;margin:0;position:relative}div{display:inline-block;}div::-moz-focus-inner{border:0}div:focus{outline:none}
+body {
+  margin: 0;
+}
+img {
+  border: 0;
+}
+body > img {
+  position: absolute;
+  left: -9999px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  min-width: 1200px;
+  min-height: 100%;
+  position: relative;
+  font: 14px/18px Arial, Helvetica, sans-serif;
+  color: #333;
+}
+/*# sourceMappingURL=style.css.map */
