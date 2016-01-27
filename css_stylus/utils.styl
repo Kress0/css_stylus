@@ -1,5 +1,22 @@
 
 //____________________
+// Simple normalization
+
+body
+    margin 0
+    
+img
+    border 0
+    
+body > img
+    position absolute
+    left -9999px
+
+table
+    border-collapse collapse
+    border-spacing 0
+
+//____________________
 // Utilities
     
 clearfix()
@@ -9,6 +26,8 @@ clearfix()
         display table
     &:after
         clear both
+    if ie
+        zoom 1
     
 display()
     if ie and arguments == inline-block
@@ -17,54 +36,62 @@ display()
     else
         display arguments
         
-reset_focus()
-    &::-moz-focus-inner
-        border 0 // mozilla
-        
-    &:focus
-        outline none
+reset_input()
+    background-color transparent
+    border 0
+    margin 0
+    padding 0
+    
+reset_list()
+    list-style none
+    margin 0
+    padding 0
         
 //____________________
 // Vendor prefixes
 
 add-prefixes(vendors, _arguments)
-    property = current-property[0];
+    property = current-property[0]
     
     for prefix in vendors
         -{prefix}-{property} _arguments
     {property} _arguments
         
 border-radius()
-    vendors = webkit moz
-    add-prefixes(vendors, arguments)
+    if not ie
+        vendors = webkit moz
+        add-prefixes(vendors, arguments)
         
 box-shadow()
-    vendors = webkit moz
-    add-prefixes(vendors, arguments)
+    if not ie
+        vendors = webkit moz
+        add-prefixes(vendors, arguments)
     
 transform()
-    vendors = webkit moz ms o
-    add-prefixes(vendors, arguments)
+    if not ie
+        vendors = webkit moz ms o
+        add-prefixes(vendors, arguments)
 
 transition()
-    vendors = webkit moz o
-    add-prefixes(vendors, arguments)
+    if not ie
+        vendors = webkit moz o
+        add-prefixes(vendors, arguments)
         
 user-select()
-    vendors = webkit moz ms
-    add-prefixes(vendors, arguments)
+    if not ie
+        vendors = webkit moz ms
+        add-prefixes(vendors, arguments)
         
 //____________________
-// Vendor prefixes disabling for IE
-        
-if ie
-    border-radius()
-        z if 0
-    box-shadow()
-        z if 0
-    transform()
-        z if 0
-    transition()
-        z if 0
-    user-select()
-        z if 0
+// Background gradients lesser support
+
+background()
+    if match('linear-gradient', ''+arguments)
+        if not ie
+            vendors = webkit moz o
+            
+            for prefix in vendors
+                background unquote('-'+ prefix +'-'+ join(',', arguments))
+            background arguments
+    else
+        background arguments
