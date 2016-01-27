@@ -8,7 +8,7 @@
     "url": "https://github.com/Kress0/css_stylus.git"
   },
   "scripts": {
-    "compile": "stylus css_stylus/style.styl css_stylus/style_ie.styl -w -c -o css/"
+    "compile": "stylus css_stylus/style.styl css_stylus/style_ie.styl -w --hoist-atrules -c -m -o css/"
   },
   "author": "a.ivaschenko || Tony Northson @ arctic.legion@gmail.com",
   "license": "MIT",
